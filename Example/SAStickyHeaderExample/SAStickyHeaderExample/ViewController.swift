@@ -19,6 +19,8 @@ class ViewController: UITableViewController {
         // Make Header view
         let header = SAStickyHeaderView(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 400))
         
+        // Images are all from Github
+        // Site: https://octodex.github.com/
         header.images.appendContentsOf([UIImage(named: "gracehoppertocat"), UIImage(named: "hipster-partycat"), UIImage(named: "mountietocat"), UIImage(named: "octoliberty"), UIImage(named: "Professortocat_v2")])
         
         tableView.tableHeaderView = header
