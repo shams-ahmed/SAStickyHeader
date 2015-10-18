@@ -22,6 +22,12 @@ it, simply add the following line to your Podfile:
 pod "SAStickyHeader"
 ```
 
+## Instruction
+
+``` swift
+
+```
+
 ## Author
 
 Shams Ahmed, shamsahmed@me.com
