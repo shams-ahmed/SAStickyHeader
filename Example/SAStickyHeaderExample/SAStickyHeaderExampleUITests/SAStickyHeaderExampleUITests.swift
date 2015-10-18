@@ -34,8 +34,68 @@ class SAStickyHeaderExampleUITests: XCTestCase {
     // MARK:
     // MARK: Test
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testImageExpand() {
+        XCUIApplication().childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Table).element.swipeDown()
+    }
+    
+    func testSwipeLeft() {
+        let table = XCUIApplication().childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Table).element
+        table.swipeRight()
+        table.swipeRight()
+        table.swipeRight()
+        table.swipeRight()
+        table.swipeRight()
+    }
+
+    func testSwipeRight() {
+        let table = XCUIApplication().childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Table).element
+        table.swipeLeft()
+        table.swipeLeft()
+        table.swipeLeft()
+        table.swipeLeft()
+    }
+
+    func testSwipeLeftToRight() {
+        let table = XCUIApplication().childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Table).element
+        table.swipeLeft()
+        table.swipeLeft()
+        table.swipeLeft()
+        table.swipeLeft()
+        table.swipeLeft()
+        table.swipeLeft()
+        table.doubleTap()
+        table.swipeLeft()
+        table.swipeLeft()
+        table.swipeRight()
+        table.swipeRight()
+        table.swipeRight()
+        table.swipeRight()
+        table.swipeRight()
+        table.swipeRight()
+        table.swipeRight()
+        table.swipeRight()
+        table.swipeRight()
+        table.swipeDown()
+    }
+    
+    func testSwipeUpDown() {
+        
+        let app = XCUIApplication()
+        let table = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Table).element
+        table.swipeDown()
+        table.swipeUp()
+        XCUIDevice.sharedDevice().orientation = .Portrait
+    }
+    
+    func testOrientation() {
+        XCUIDevice.sharedDevice().orientation = .LandscapeRight
+        
+        let table = XCUIApplication().childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Table).element
+        table.swipeLeft()
+        table.swipeRight()
+        table.swipeRight()
+        table.swipeDown()
+        table.swipeDown()
+        table.swipeRight()
     }
 }
