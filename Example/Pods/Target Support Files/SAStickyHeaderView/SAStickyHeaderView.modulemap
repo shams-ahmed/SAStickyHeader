@@ -1,6 +1,0 @@
-framework module SAStickyHeaderView {
-  umbrella header "SAStickyHeaderView-umbrella.h"
-
-  export *
-  module * { export * }
-}

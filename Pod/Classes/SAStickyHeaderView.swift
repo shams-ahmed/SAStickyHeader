@@ -1,5 +1,5 @@
 //
-//  MFStickyHeaderView.swift
+//  SAStickyHeaderView.swift
 //  SA
 //
 //  Created by shams ahmed on 18/10/2015.
@@ -10,13 +10,15 @@ import UIKit
 
 class SAStickyHeaderView: UIView {
     
+    /// images to add to header view
+    var images = [UIImage?]()
+    
     let imageView: UIImageView = UIImageView()
+    let containerView = UIView()
     
-    internal let containerView = UIView()
-    
-    internal var heightLayoutConstraint = NSLayoutConstraint()
-    internal var bottomLayoutConstraint = NSLayoutConstraint()
-    internal var containerLayoutConstraint = NSLayoutConstraint()
+    var heightLayoutConstraint = NSLayoutConstraint()
+    var bottomLayoutConstraint = NSLayoutConstraint()
+    var containerLayoutConstraint = NSLayoutConstraint()
     
     // MARK:
     // MARK: Nib
@@ -45,7 +47,13 @@ class SAStickyHeaderView: UIView {
     // MARK:
     // MARK: Setup
     
-    func setup() {
+    private func setup() {
+        setupView()
+        setupConsistent()
+        setupGesture()
+    }
+    
+    private func setupView() {
         containerView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(containerView)
         
@@ -55,21 +63,44 @@ class SAStickyHeaderView: UIView {
         containerView.addSubview(imageView)
     }
     
+    private func setupConsistent() {
+        bottomLayoutConstraint = NSLayoutConstraint(item: imageView, attribute: .Bottom, relatedBy: .Equal, toItem: containerView, attribute: .Bottom, multiplier: 1.0, constant: 0.0)
+        
+        heightLayoutConstraint = NSLayoutConstraint(item: imageView, attribute: .Height, relatedBy: .Equal, toItem: containerView, attribute: .Height, multiplier: 1.0, constant: 0.0)
+        
+        containerLayoutConstraint = NSLayoutConstraint(item: containerView, attribute: .Height, relatedBy: .Equal, toItem: self, attribute: .Height, multiplier: 1.0, constant: 0.0)
+    }
+    
+    private func setupGesture() {
+        let action: Selector = "didSwipeImageView:"
+        let leftGesture = UISwipeGestureRecognizer(target: self, action: action)
+        let rightGesture = UISwipeGestureRecognizer(target: self, action: action)
+        
+        leftGesture.direction = UISwipeGestureRecognizerDirection.Left
+        rightGesture.direction = UISwipeGestureRecognizerDirection.Right
+        
+        addGestureRecognizer(leftGesture)
+        addGestureRecognizer(rightGesture)
+    }
+    
     // MARK:
     // MARK: Layout
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+    
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[containerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["containerView" : containerView]))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[containerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["containerView" : containerView]))
-        containerLayoutConstraint = NSLayoutConstraint(item: containerView, attribute: .Height, relatedBy: .Equal, toItem: self, attribute: .Height, multiplier: 1.0, constant: 0.0)
+        
         addConstraint(containerLayoutConstraint)
         
         containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[imageView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["imageView" : imageView]))
-        bottomLayoutConstraint = NSLayoutConstraint(item: imageView, attribute: .Bottom, relatedBy: .Equal, toItem: containerView, attribute: .Bottom, multiplier: 1.0, constant: 0.0)
+
         containerView.addConstraint(bottomLayoutConstraint)
-        heightLayoutConstraint = NSLayoutConstraint(item: imageView, attribute: .Height, relatedBy: .Equal, toItem: containerView, attribute: .Height, multiplier: 1.0, constant: 0.0)
         containerView.addConstraint(heightLayoutConstraint)
-    }    
+        
+        if let firstImage = images.first {
+            imageView.image = firstImage
+        }
+    }
 }

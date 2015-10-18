@@ -1,21 +1,14 @@
 PODS:
-  - FBSnapshotTestCase (2.0.5):
-    - FBSnapshotTestCase/SwiftSupport (= 2.0.5)
-  - FBSnapshotTestCase/Core (2.0.5)
-  - FBSnapshotTestCase/SwiftSupport (2.0.5):
-    - FBSnapshotTestCase/Core
-  - SAStickyHeaderView (0.1.0)
+  - SAStickyHeader (0.1.0)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase
-  - SAStickyHeaderView (from `../`)
+  - SAStickyHeader (from `../`)
 
 EXTERNAL SOURCES:
-  SAStickyHeaderView:
+  SAStickyHeader:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FBSnapshotTestCase: 6917deb01d0556dd544536f9eb34e0cf26f904d5
-  SAStickyHeaderView: 6587728e713b0b05a9c41c7582aa88aec0d3ff04
+  SAStickyHeader: 1635d3ab32911b6b8beed4f333f282f4ee634970
 
 COCOAPODS: 0.39.0

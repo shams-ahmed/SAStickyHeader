@@ -1,6 +1,6 @@
 //
-//  MFStickyHeaderView+Scroll.swift
-//  Pods
+//  SAStickyHeaderView+Scroll.swift
+//  SA
 //
 //  Created by shams ahmed on 18/10/2015.
 //
@@ -14,11 +14,14 @@ extension SAStickyHeaderView {
     // MARK: Scroll
 
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        containerLayoutConstraint.constant = scrollView.contentInset.top;
+        let insert = scrollView.contentInset
+        let offsetY = -(scrollView.contentOffset.y + insert.top)
         
-        let offsetY = -(scrollView.contentOffset.y + scrollView.contentInset.top);
+        containerLayoutConstraint.constant = insert.top
+        
         containerView.clipsToBounds = offsetY <= 0
+
         bottomLayoutConstraint.constant = offsetY >= 0 ? 0 : -offsetY / 2
-        heightLayoutConstraint.constant = max(offsetY + scrollView.contentInset.top, scrollView.contentInset.top)
+        heightLayoutConstraint.constant = max(offsetY + insert.top, insert.top)
     }
 }
