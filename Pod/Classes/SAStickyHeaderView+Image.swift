@@ -21,14 +21,15 @@ extension SAStickyHeaderView {
                 }
                 
                 if imageView.image == last {
-                    print("last")
+                    print("L last")
                     imageView.image = first
                     break
                 } else if imageView.image == first {
-                    print("first")
+                    print("L first")
                     imageView.image = images[1]
                     break
                 } else if imageView.image == element, let image = images[index+1] {
+                    print("L")
                     imageView.image = image
                     break
                 }
@@ -40,14 +41,15 @@ extension SAStickyHeaderView {
                 }
                 
                 if imageView.image == last {
-                    print("last")
-                    imageView.image = first
+                    print("R last")
+                    imageView.image = images[images.count-2]
                     break
                 } else if imageView.image == first {
-                    print("first")
-                    imageView.image = images[1]
+                    print("R first")
+                    imageView.image = last
                     break
-                } else if imageView.image == element, let image = images[index+1] {
+                } else if imageView.image == element, let image = images[index-1] {
+                    print("R")
                     imageView.image = image
                     break
                 }

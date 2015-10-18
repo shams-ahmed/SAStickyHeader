@@ -19,7 +19,7 @@ class ViewController: UITableViewController {
         // Make Header view
         let header = SAStickyHeaderView(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 400))
         
-        header.images.appendContentsOf([UIImage(named: "octoliberty"), UIImage(named: "mountietocat"), UIImage(named: "hipster-partycat"), UIImage(named: "gracehoppertocat"), UIImage(named: "Professortocat_v2")])
+        header.images.appendContentsOf([UIImage(named: "gracehoppertocat"), UIImage(named: "hipster-partycat"), UIImage(named: "mountietocat"), UIImage(named: "octoliberty"), UIImage(named: "Professortocat_v2")])
         
         tableView.tableHeaderView = header
     }
