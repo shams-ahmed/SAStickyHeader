@@ -24,7 +24,7 @@ pod "SAStickyHeader"
 
 ## Instruction
 
-``` swift
+```swift
 let images = [UIImage(named: "gracehoppertocat"), UIImage(named: "hipster-partycat")]
         
 tableView.tableHeaderView = SAStickyHeaderView(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 400), table: tableView, image: images)
