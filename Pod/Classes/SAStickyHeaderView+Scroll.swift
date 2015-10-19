@@ -13,15 +13,15 @@ extension SAStickyHeaderView {
     // MARK:
     // MARK: Scroll
 
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        let insert = scrollView.contentInset
-        let offsetY = -(scrollView.contentOffset.y + insert.top)
+    func updateImageViewFromScrollEvent(tableView: UITableView) {
+        let insert = tableView.contentInset
+        let offset = -(tableView.contentOffset.y + insert.top)
         
         containerLayoutConstraint.constant = insert.top
         
-        containerView.clipsToBounds = offsetY <= 0
+        containerView.clipsToBounds = offset <= 0
 
-        bottomLayoutConstraint.constant = offsetY >= 0 ? 0 : -offsetY / 2
-        heightLayoutConstraint.constant = max(offsetY + insert.top, insert.top)
+        bottomLayoutConstraint.constant = offset >= 0 ? 0 : -offset / 2
+        heightLayoutConstraint.constant = max(offset + insert.top, insert.top)
     }
 }

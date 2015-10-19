@@ -13,12 +13,12 @@ class SAStickyHeaderView: UIView {
     /// images to add to header view
     var images = [UIImage?]()
     
-    let imageView: UIImageView = UIImageView()
-    let containerView = UIView()
+    internal let imageView: UIImageView = UIImageView()
+    internal let containerView = UIView()
     
-    var heightLayoutConstraint = NSLayoutConstraint()
-    var bottomLayoutConstraint = NSLayoutConstraint()
-    var containerLayoutConstraint = NSLayoutConstraint()
+    internal var heightLayoutConstraint = NSLayoutConstraint()
+    internal var bottomLayoutConstraint = NSLayoutConstraint()
+    internal var containerLayoutConstraint = NSLayoutConstraint()
     
     // MARK:
     // MARK: Nib
@@ -32,10 +32,12 @@ class SAStickyHeaderView: UIView {
     // MARK:
     // MARK: Init
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, table: UITableView, image: [UIImage?]?) {
         super.init(frame: frame)
         
         setup()
+        setupScrollViewObserve(table)
+        addImages(image)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -81,6 +83,19 @@ class SAStickyHeaderView: UIView {
         
         addGestureRecognizer(leftGesture)
         addGestureRecognizer(rightGesture)
+    }
+    
+    private func setupScrollViewObserve(table: UITableView) {
+        table.addObserver(self, forKeyPath: "contentOffset", options: NSKeyValueObservingOptions.New, context: nil)
+    }
+    
+    // MARK:
+    // MARK: Image
+    
+    private func addImages(image: [UIImage?]?) {
+        if let image = image as Array? {
+            images.appendContentsOf(image)
+        }
     }
     
     // MARK:

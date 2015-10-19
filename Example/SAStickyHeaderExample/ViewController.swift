@@ -16,14 +16,10 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Make Header view
-        let header = SAStickyHeaderView(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 400))
+        // Images are all from Github https://octodex.github.com/
+        let images = [UIImage(named: "gracehoppertocat"), UIImage(named: "hipster-partycat"), UIImage(named: "mountietocat"), UIImage(named: "octoliberty"), UIImage(named: "Professortocat_v2")]
         
-        // Images are all from Github
-        // Site: https://octodex.github.com/
-        header.images.appendContentsOf([UIImage(named: "gracehoppertocat"), UIImage(named: "hipster-partycat"), UIImage(named: "mountietocat"), UIImage(named: "octoliberty"), UIImage(named: "Professortocat_v2")])
-        
-        tableView.tableHeaderView = header
+        tableView.tableHeaderView = SAStickyHeaderView(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 400), table: tableView, image: images)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -36,14 +32,5 @@ class ViewController: UITableViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-    }
-    
-    // MARK:
-    // MARK: Scroll 
-    
-    override func scrollViewDidScroll(scrollView: UIScrollView) {
-        if let headerView = tableView.tableHeaderView as? SAStickyHeaderView {
-            headerView.scrollViewDidScroll(scrollView)
-        }
     }
 }

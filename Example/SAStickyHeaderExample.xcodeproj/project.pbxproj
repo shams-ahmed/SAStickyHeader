@@ -13,10 +13,11 @@
 		100DAD4C1BD3CEBC00170A84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 100DAD4B1BD3CEBC00170A84 /* Assets.xcassets */; };
 		100DAD4F1BD3CEBC00170A84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 100DAD4D1BD3CEBC00170A84 /* LaunchScreen.storyboard */; };
 		100DAD5A1BD3CEBC00170A84 /* SAStickyHeaderExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD591BD3CEBC00170A84 /* SAStickyHeaderExampleUITests.swift */; };
-		100DAD691BD3CEFD00170A84 /* SAStickyHeaderView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD671BD3CEFD00170A84 /* SAStickyHeaderView+Scroll.swift */; settings = {ASSET_TAGS = (); }; };
-		100DAD6A1BD3CEFD00170A84 /* SAStickyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD681BD3CEFD00170A84 /* SAStickyHeaderView.swift */; settings = {ASSET_TAGS = (); }; };
-		100DAD751BD3D52F00170A84 /* SAStickyHeaderView+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD741BD3D52F00170A84 /* SAStickyHeaderView+Gesture.swift */; settings = {ASSET_TAGS = (); }; };
-		100DAD771BD41E6D00170A84 /* SAStickyHeaderView+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD761BD41E6D00170A84 /* SAStickyHeaderView+Image.swift */; settings = {ASSET_TAGS = (); }; };
+		100DAD8B1BD45A0200170A84 /* SAStickyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD871BD45A0200170A84 /* SAStickyHeaderView.swift */; settings = {ASSET_TAGS = (); }; };
+		100DAD8C1BD45A0200170A84 /* SAStickyHeaderView+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD881BD45A0200170A84 /* SAStickyHeaderView+Image.swift */; settings = {ASSET_TAGS = (); }; };
+		100DAD8D1BD45A0200170A84 /* SAStickyHeaderView+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD891BD45A0200170A84 /* SAStickyHeaderView+Gesture.swift */; settings = {ASSET_TAGS = (); }; };
+		100DAD8E1BD45A0200170A84 /* SAStickyHeaderView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD8A1BD45A0200170A84 /* SAStickyHeaderView+Scroll.swift */; settings = {ASSET_TAGS = (); }; };
+		100DAD901BD4613500170A84 /* SAStickyHeaderView+Observe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD8F1BD4613500170A84 /* SAStickyHeaderView+Observe.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +41,11 @@
 		100DAD551BD3CEBC00170A84 /* SAStickyHeaderExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SAStickyHeaderExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		100DAD591BD3CEBC00170A84 /* SAStickyHeaderExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAStickyHeaderExampleUITests.swift; sourceTree = "<group>"; };
 		100DAD5B1BD3CEBC00170A84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		100DAD671BD3CEFD00170A84 /* SAStickyHeaderView+Scroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Scroll.swift"; path = "../../Pod/Classes/SAStickyHeaderView+Scroll.swift"; sourceTree = "<group>"; };
-		100DAD681BD3CEFD00170A84 /* SAStickyHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SAStickyHeaderView.swift; path = ../../Pod/Classes/SAStickyHeaderView.swift; sourceTree = "<group>"; };
-		100DAD741BD3D52F00170A84 /* SAStickyHeaderView+Gesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Gesture.swift"; path = "../../Pod/Classes/SAStickyHeaderView+Gesture.swift"; sourceTree = "<group>"; };
-		100DAD761BD41E6D00170A84 /* SAStickyHeaderView+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Image.swift"; path = "../../Pod/Classes/SAStickyHeaderView+Image.swift"; sourceTree = "<group>"; };
+		100DAD871BD45A0200170A84 /* SAStickyHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SAStickyHeaderView.swift; path = Classes/SAStickyHeaderView.swift; sourceTree = "<group>"; };
+		100DAD881BD45A0200170A84 /* SAStickyHeaderView+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Image.swift"; path = "Classes/SAStickyHeaderView+Image.swift"; sourceTree = "<group>"; };
+		100DAD891BD45A0200170A84 /* SAStickyHeaderView+Gesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Gesture.swift"; path = "Classes/SAStickyHeaderView+Gesture.swift"; sourceTree = "<group>"; };
+		100DAD8A1BD45A0200170A84 /* SAStickyHeaderView+Scroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Scroll.swift"; path = "Classes/SAStickyHeaderView+Scroll.swift"; sourceTree = "<group>"; };
+		100DAD8F1BD4613500170A84 /* SAStickyHeaderView+Observe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Observe.swift"; path = "Classes/SAStickyHeaderView+Observe.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,12 +126,22 @@
 		100DAD661BD3CEE100170A84 /* SAStickyHeader */ = {
 			isa = PBXGroup;
 			children = (
-				100DAD681BD3CEFD00170A84 /* SAStickyHeaderView.swift */,
-				100DAD671BD3CEFD00170A84 /* SAStickyHeaderView+Scroll.swift */,
-				100DAD741BD3D52F00170A84 /* SAStickyHeaderView+Gesture.swift */,
-				100DAD761BD41E6D00170A84 /* SAStickyHeaderView+Image.swift */,
+				100DAD781BD459E800170A84 /* Pod */,
 			);
 			name = SAStickyHeader;
+			sourceTree = "<group>";
+		};
+		100DAD781BD459E800170A84 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				100DAD871BD45A0200170A84 /* SAStickyHeaderView.swift */,
+				100DAD8F1BD4613500170A84 /* SAStickyHeaderView+Observe.swift */,
+				100DAD881BD45A0200170A84 /* SAStickyHeaderView+Image.swift */,
+				100DAD891BD45A0200170A84 /* SAStickyHeaderView+Gesture.swift */,
+				100DAD8A1BD45A0200170A84 /* SAStickyHeaderView+Scroll.swift */,
+			);
+			name = Pod;
+			path = ../Pod;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,12 +244,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				100DAD691BD3CEFD00170A84 /* SAStickyHeaderView+Scroll.swift in Sources */,
 				100DAD471BD3CEBC00170A84 /* ViewController.swift in Sources */,
-				100DAD751BD3D52F00170A84 /* SAStickyHeaderView+Gesture.swift in Sources */,
-				100DAD6A1BD3CEFD00170A84 /* SAStickyHeaderView.swift in Sources */,
-				100DAD771BD41E6D00170A84 /* SAStickyHeaderView+Image.swift in Sources */,
 				100DAD451BD3CEBC00170A84 /* AppDelegate.swift in Sources */,
+				100DAD8D1BD45A0200170A84 /* SAStickyHeaderView+Gesture.swift in Sources */,
+				100DAD8E1BD45A0200170A84 /* SAStickyHeaderView+Scroll.swift in Sources */,
+				100DAD8C1BD45A0200170A84 /* SAStickyHeaderView+Image.swift in Sources */,
+				100DAD901BD4613500170A84 /* SAStickyHeaderView+Observe.swift in Sources */,
+				100DAD8B1BD45A0200170A84 /* SAStickyHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +440,7 @@
 				100DAD601BD3CEBC00170A84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		100DAD611BD3CEBC00170A84 /* Build configuration list for PBXNativeTarget "SAStickyHeaderExampleUITests" */ = {
 			isa = XCConfigurationList;
@@ -435,6 +449,7 @@
 				100DAD631BD3CEBC00170A84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
