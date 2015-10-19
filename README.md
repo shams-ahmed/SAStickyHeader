@@ -11,7 +11,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Screenshot
 
-![Platform](Screenshot/screenshot.gif)]
+![Platform](Screenshot/screenshot.gif)
 
 ## Installation
 
