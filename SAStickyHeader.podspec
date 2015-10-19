@@ -10,8 +10,7 @@ Pod::Spec.new do |s|
   s.license          = 'MIT'
   s.author           = { "Shams Ahmed" => "shamsahmed@me.com" }
   s.source           = { :git => "https://github.com/shams-ahmed/SAStickyHeader.git", :tag => s.version.to_s }
-  s.social_media_url = 'https://twitter.com/shams5035>'
-
+  s.social_media_url = 'https://twitter.com/shams5035'
   s.platform     = :ios, '8.0'
   s.requires_arc = true
   s.source_files = 'Pod/Classes/**/*.{h,m,swift}'
