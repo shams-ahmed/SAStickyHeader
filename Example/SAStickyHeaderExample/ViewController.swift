@@ -8,6 +8,17 @@
 
 import UIKit
 
+/**
+Github Example images from: https://octodex.github.com/
+*/
+enum SASGithubImage: String {
+    case gracehoppertocat
+    case hipsterPartycat
+    case mountietocat
+    case octoliberty
+    case Professortocat_v2
+}
+
 class ViewController: UITableViewController {
     
     // MARK:
@@ -16,8 +27,7 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Images are all from Github https://octodex.github.com/
-        let images = [UIImage(named: "gracehoppertocat"), UIImage(named: "hipster-partycat"), UIImage(named: "mountietocat"), UIImage(named: "octoliberty"), UIImage(named: "Professortocat_v2")]
+        let images = [UIImage(named: SASGithubImage.gracehoppertocat.rawValue), UIImage(named: SASGithubImage.hipsterPartycat.rawValue), UIImage(named: SASGithubImage.mountietocat.rawValue), UIImage(named: SASGithubImage.octoliberty.rawValue), UIImage(named: SASGithubImage.Professortocat_v2.rawValue)]
         
         tableView.tableHeaderView = SAStickyHeaderView(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 400), table: tableView, image: images)
     }

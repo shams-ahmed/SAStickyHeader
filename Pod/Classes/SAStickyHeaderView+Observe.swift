@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension SAStickyHeaderView {
+public extension SAStickyHeaderView {
     
     // MARK:
     // MARK: KVO

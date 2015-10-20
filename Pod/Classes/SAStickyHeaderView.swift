@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SAStickyHeaderView: UIView {
+public class SAStickyHeaderView: UIView {
     
     /// images to add to header view
     var images = [UIImage?]()
@@ -23,7 +23,7 @@ class SAStickyHeaderView: UIView {
     // MARK:
     // MARK: Nib
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         
         setup()
@@ -32,7 +32,7 @@ class SAStickyHeaderView: UIView {
     // MARK:
     // MARK: Init
     
-    init(frame: CGRect, table: UITableView, image: [UIImage?]?) {
+    public init(frame: CGRect, table: UITableView, image: [UIImage?]?) {
         super.init(frame: frame)
         
         setup()
@@ -40,7 +40,7 @@ class SAStickyHeaderView: UIView {
         addImages(image)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         setup()
@@ -101,7 +101,7 @@ class SAStickyHeaderView: UIView {
     // MARK:
     // MARK: Layout
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
     
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[containerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["containerView" : containerView]))
