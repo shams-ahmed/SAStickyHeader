@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SAStickyHeader"
-  s.version          = "0.1.0"
+  s.version          = "0.2.0"
   s.summary          = "A very simple sticky header with multiple image support via swipe gestures"
 
   s.description      = <<-DESC
