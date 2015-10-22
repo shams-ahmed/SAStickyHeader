@@ -11,7 +11,7 @@ import UIKit
 public class SAStickyHeaderView: UIView {
     
     /// images to add to header view
-    var images = [UIImage?]()
+    public var images = [UIImage?]()
     
     internal let imageView: UIImageView = UIImageView()
     internal let containerView = UIView()
