@@ -29,6 +29,7 @@ class ViewController: UITableViewController {
         
         let images = [UIImage(named: SASGithubImage.gracehoppertocat.rawValue), UIImage(named: SASGithubImage.hipsterPartycat.rawValue), UIImage(named: SASGithubImage.mountietocat.rawValue), UIImage(named: SASGithubImage.octoliberty.rawValue), UIImage(named: SASGithubImage.Professortocat_v2.rawValue)]
         
+        // add SAStickyHeaderView with a frame and optional image array. 
         tableView.tableHeaderView = SAStickyHeaderView(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 400), table: tableView, image: images)
     }
     
