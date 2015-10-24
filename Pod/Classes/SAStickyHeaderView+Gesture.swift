@@ -14,6 +14,6 @@ extension SAStickyHeaderView {
     // MARK: Gesture
     
     internal func didSwipeImageView(sender: UISwipeGestureRecognizer) {
-        updateImageWithDirction(sender.direction)
+        updateImageWithDirection(sender.direction)
     }
 }

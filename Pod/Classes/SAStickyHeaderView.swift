@@ -8,10 +8,8 @@
 
 import UIKit
 
+/// SAStickyHeaderView - Simple sticky header with multiple image support via swipe gestures
 public class SAStickyHeaderView: UIView {
-    
-    /// images to add to header view
-    public var images = [UIImage?]()
     
     internal let imageView: UIImageView = UIImageView()
     internal let containerView = UIView()
@@ -19,6 +17,14 @@ public class SAStickyHeaderView: UIView {
     internal var heightLayoutConstraint = NSLayoutConstraint()
     internal var bottomLayoutConstraint = NSLayoutConstraint()
     internal var containerLayoutConstraint = NSLayoutConstraint()
+    
+    /// images to add to header view
+    public var images = [UIImage?]() {
+        // As of Swift 2.0, there is still no support for KVO, so to workaround this issue i observer when it set
+        didSet {
+            didUpdateImages()
+        }
+    }
     
     // MARK:
     // MARK: Nib
@@ -73,6 +79,9 @@ public class SAStickyHeaderView: UIView {
         containerLayoutConstraint = NSLayoutConstraint(item: containerView, attribute: .Height, relatedBy: .Equal, toItem: self, attribute: .Height, multiplier: 1.0, constant: 0.0)
     }
     
+    /**
+    add left and right gesture to imageView
+    */
     private func setupGesture() {
         let action: Selector = "didSwipeImageView:"
         let leftGesture = UISwipeGestureRecognizer(target: self, action: action)
@@ -113,9 +122,5 @@ public class SAStickyHeaderView: UIView {
 
         containerView.addConstraint(bottomLayoutConstraint)
         containerView.addConstraint(heightLayoutConstraint)
-        
-        if let firstImage = images.first {
-            imageView.image = firstImage
-        }
     }
 }

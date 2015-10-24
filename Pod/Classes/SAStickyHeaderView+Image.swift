@@ -13,7 +13,8 @@ extension SAStickyHeaderView {
     // MARK:
     // MARK: Image
     
-    func updateImageWithDirction(direction: UISwipeGestureRecognizerDirection) {
+    func updateImageWithDirection(direction: UISwipeGestureRecognizerDirection) {
+        // loop for images and swipe them out depending on a match and direction of swipe
         for (index, element) in images.enumerate() {
             guard let first = images.first, let last = images.last else {
                 return
@@ -31,8 +32,8 @@ extension SAStickyHeaderView {
                     break
                 }
             } else if direction == UISwipeGestureRecognizerDirection.Right {
-                if imageView.image == last {
-                    imageView.image = images[images.count-2]
+                if imageView.image == last && images.count > 2 {
+                    imageView.image = images[images.count - 2]
                     break
                 } else if imageView.image == first {
                     imageView.image = last
@@ -42,6 +43,13 @@ extension SAStickyHeaderView {
                     break
                 }
             }
+        }
+    }
+    
+    func didUpdateImages() {
+        // add first image to imageView and display it
+        if imageView.image == nil, let firstImage = images.first {
+            imageView.image = firstImage
         }
     }
 }
