@@ -12,11 +12,11 @@ import UIKit
 Github Example images from: https://octodex.github.com/
 */
 enum SASGithubImage: String {
-    case gracehoppertocat
-    case hipsterPartycat
-    case mountietocat
-    case octoliberty
-    case Professortocat_v2
+    case Gracehoppertocat
+    case HipsterPartycat
+    case Mountietocat
+    case Octoliberty
+    case ProfessortocatV2
 }
 
 class ViewController: UITableViewController {
@@ -28,10 +28,10 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         
         // list of github images for example, for DEMO purposes ive loadded everything first but this can easiler be added afterworld with images.append()
-        let images = [UIImage(named: SASGithubImage.gracehoppertocat.rawValue), UIImage(named: SASGithubImage.hipsterPartycat.rawValue), UIImage(named: SASGithubImage.mountietocat.rawValue), UIImage(named: SASGithubImage.octoliberty.rawValue), UIImage(named: SASGithubImage.Professortocat_v2.rawValue)]
+        let images = [UIImage(named: SASGithubImage.Gracehoppertocat.rawValue), UIImage(named: SASGithubImage.HipsterPartycat.rawValue), UIImage(named: SASGithubImage.Mountietocat.rawValue), UIImage(named: SASGithubImage.Octoliberty.rawValue), UIImage(named: SASGithubImage.ProfessortocatV2.rawValue)]
         
         // add SAStickyHeaderView with a frame and optional image array. 
-        tableView.tableHeaderView = SAStickyHeaderView(frame: CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 400), table: tableView, image: images)
+        tableView.tableHeaderView = SAStickyHeaderView(frame: CGRectMake(0, 0, CGRectGetWidth(view.frame), 400), table: tableView, image: images)
     }
     
     override func viewWillAppear(animated: Bool) {

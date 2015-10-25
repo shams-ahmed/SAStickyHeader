@@ -154,6 +154,7 @@
 				100DAD3D1BD3CEBC00170A84 /* Sources */,
 				100DAD3E1BD3CEBC00170A84 /* Frameworks */,
 				100DAD3F1BD3CEBC00170A84 /* Resources */,
+				10DB2E311BDD57BF00D1E042 /* Swift Lint Checker */,
 			);
 			buildRules = (
 			);
@@ -238,6 +239,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		10DB2E311BDD57BF00D1E042 /* Swift Lint Checker */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint Checker";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -x /usr/local/bin/swiftlint ]; then\n/usr/local/bin/swiftlint\nelse\necho \"Swift Lint does not exist! https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		100DAD3D1BD3CEBC00170A84 /* Sources */ = {
