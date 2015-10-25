@@ -253,7 +253,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -x /usr/local/bin/swiftlint ]; then\n/usr/local/bin/swiftlint\nelse\necho \"Swift Lint does not exist! https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if [ -x /usr/local/bin/swiftlint ]; then\n/usr/local/bin/swiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
