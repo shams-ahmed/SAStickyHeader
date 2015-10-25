@@ -27,6 +27,7 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // list of github images for example, for DEMO purposes ive loadded everything first but this can easiler be added afterworld with images.append()
         let images = [UIImage(named: SASGithubImage.gracehoppertocat.rawValue), UIImage(named: SASGithubImage.hipsterPartycat.rawValue), UIImage(named: SASGithubImage.mountietocat.rawValue), UIImage(named: SASGithubImage.octoliberty.rawValue), UIImage(named: SASGithubImage.Professortocat_v2.rawValue)]
         
         // add SAStickyHeaderView with a frame and optional image array. 

@@ -18,6 +18,9 @@ public class SAStickyHeaderView: UIView {
     internal var bottomLayoutConstraint = NSLayoutConstraint()
     internal var containerLayoutConstraint = NSLayoutConstraint()
     
+    /// need to reference to make this control and easy and lightweight as much as possible
+    private let tableView: UITableView
+    
     /// images to add to header view
     public var images = [UIImage?]() {
         // As of Swift 2.0, there is still no support for KVO, so to workaround this issue i observer when it set
@@ -38,7 +41,9 @@ public class SAStickyHeaderView: UIView {
     // MARK:
     // MARK: Init
     
-    public init(frame: CGRect, table: UITableView, image: [UIImage?]?) {
+    required public init(frame: CGRect, table: UITableView, image: [UIImage?]?) {
+        tableView = table
+        
         super.init(frame: frame)
         
         setup()
@@ -47,13 +52,14 @@ public class SAStickyHeaderView: UIView {
     }
     
     public required init?(coder aDecoder: NSCoder) {
+        self.tableView = UITableView()
         super.init(coder: aDecoder)
         
         setup()
     }
     
     deinit {
-        removeObserver(self, forKeyPath: "contentOffset")
+        tableView.removeObserver(self, forKeyPath: "contentOffset")
     }
     
     // MARK:
