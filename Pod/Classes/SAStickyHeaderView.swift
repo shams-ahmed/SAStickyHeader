@@ -52,6 +52,10 @@ public class SAStickyHeaderView: UIView {
         setup()
     }
     
+    deinit {
+        removeObserver(self, forKeyPath: "contentOffset")
+    }
+    
     // MARK:
     // MARK: Setup
     
