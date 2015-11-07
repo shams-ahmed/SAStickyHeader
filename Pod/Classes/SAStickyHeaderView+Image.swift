@@ -14,36 +14,43 @@ extension SAStickyHeaderView {
     // MARK: Image
     
     func updateImageWithDirection(direction: UISwipeGestureRecognizerDirection) {
+        var animateImage: UIImage?
+        
         // loop for images and swipe them out depending on a match and direction of swipe
         for (index, element) in images.enumerate() {
             guard let first = images.first, let last = images.last else {
                 return
             }
-            
-            if direction == UISwipeGestureRecognizerDirection.Left {
+        
+            if direction == .Left {
                 if imageView.image == last {
-                    imageView.image = first
+                    animateImage = first
                     break
                 } else if imageView.image == first {
-                    imageView.image = images[1]
+                    animateImage = images[1]
                     break
                 } else if imageView.image == element, let image = images[index+1] {
-                    imageView.image = image
+                    animateImage = image
                     break
                 }
-            } else if direction == UISwipeGestureRecognizerDirection.Right {
+            } else if direction == .Right {
                 if imageView.image == last && images.count > 2 {
-                    imageView.image = images[images.count - 2]
+                    animateImage = images[images.count - 2]
                     break
                 } else if imageView.image == first {
-                    imageView.image = last
+                    animateImage = last
                     break
                 } else if imageView.image == element, let image = images[index-1] {
-                    imageView.image = image
+                    animateImage = image
                     break
                 }
             }
         }
+        
+        // animate image
+        UIView.transitionWithView(imageView, duration:0.5, options:.TransitionCrossDissolve, animations: {
+            self.imageView.image = animateImage
+        }, completion: nil)
     }
     
     func didUpdateImages() {
