@@ -13,11 +13,12 @@
 		100DAD4C1BD3CEBC00170A84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 100DAD4B1BD3CEBC00170A84 /* Assets.xcassets */; };
 		100DAD4F1BD3CEBC00170A84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 100DAD4D1BD3CEBC00170A84 /* LaunchScreen.storyboard */; };
 		100DAD5A1BD3CEBC00170A84 /* SAStickyHeaderExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD591BD3CEBC00170A84 /* SAStickyHeaderExampleUITests.swift */; };
-		100DAD8B1BD45A0200170A84 /* SAStickyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD871BD45A0200170A84 /* SAStickyHeaderView.swift */; settings = {ASSET_TAGS = (); }; };
-		100DAD8C1BD45A0200170A84 /* SAStickyHeaderView+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD881BD45A0200170A84 /* SAStickyHeaderView+Image.swift */; settings = {ASSET_TAGS = (); }; };
-		100DAD8D1BD45A0200170A84 /* SAStickyHeaderView+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD891BD45A0200170A84 /* SAStickyHeaderView+Gesture.swift */; settings = {ASSET_TAGS = (); }; };
-		100DAD8E1BD45A0200170A84 /* SAStickyHeaderView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD8A1BD45A0200170A84 /* SAStickyHeaderView+Scroll.swift */; settings = {ASSET_TAGS = (); }; };
-		100DAD901BD4613500170A84 /* SAStickyHeaderView+Observe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD8F1BD4613500170A84 /* SAStickyHeaderView+Observe.swift */; settings = {ASSET_TAGS = (); }; };
+		100DAD8B1BD45A0200170A84 /* SAStickyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD871BD45A0200170A84 /* SAStickyHeaderView.swift */; };
+		100DAD8C1BD45A0200170A84 /* SAStickyHeaderView+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD881BD45A0200170A84 /* SAStickyHeaderView+Image.swift */; };
+		100DAD8D1BD45A0200170A84 /* SAStickyHeaderView+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD891BD45A0200170A84 /* SAStickyHeaderView+Gesture.swift */; };
+		100DAD8E1BD45A0200170A84 /* SAStickyHeaderView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD8A1BD45A0200170A84 /* SAStickyHeaderView+Scroll.swift */; };
+		100DAD901BD4613500170A84 /* SAStickyHeaderView+Observe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD8F1BD4613500170A84 /* SAStickyHeaderView+Observe.swift */; };
+		107D7C5A1BEEC5C000859F3F /* SAStickyHeaderView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107D7C591BEEC5C000859F3F /* SAStickyHeaderView+Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		100DAD891BD45A0200170A84 /* SAStickyHeaderView+Gesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Gesture.swift"; path = "Classes/SAStickyHeaderView+Gesture.swift"; sourceTree = "<group>"; };
 		100DAD8A1BD45A0200170A84 /* SAStickyHeaderView+Scroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Scroll.swift"; path = "Classes/SAStickyHeaderView+Scroll.swift"; sourceTree = "<group>"; };
 		100DAD8F1BD4613500170A84 /* SAStickyHeaderView+Observe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Observe.swift"; path = "Classes/SAStickyHeaderView+Observe.swift"; sourceTree = "<group>"; };
+		107D7C591BEEC5C000859F3F /* SAStickyHeaderView+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Helper.swift"; path = "Classes/SAStickyHeaderView+Helper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				100DAD881BD45A0200170A84 /* SAStickyHeaderView+Image.swift */,
 				100DAD891BD45A0200170A84 /* SAStickyHeaderView+Gesture.swift */,
 				100DAD8A1BD45A0200170A84 /* SAStickyHeaderView+Scroll.swift */,
+				107D7C591BEEC5C000859F3F /* SAStickyHeaderView+Helper.swift */,
 			);
 			name = Pod;
 			path = ../Pod;
@@ -266,6 +269,7 @@
 				100DAD451BD3CEBC00170A84 /* AppDelegate.swift in Sources */,
 				100DAD8D1BD45A0200170A84 /* SAStickyHeaderView+Gesture.swift in Sources */,
 				100DAD8E1BD45A0200170A84 /* SAStickyHeaderView+Scroll.swift in Sources */,
+				107D7C5A1BEEC5C000859F3F /* SAStickyHeaderView+Helper.swift in Sources */,
 				100DAD8C1BD45A0200170A84 /* SAStickyHeaderView+Image.swift in Sources */,
 				100DAD901BD4613500170A84 /* SAStickyHeaderView+Observe.swift in Sources */,
 				100DAD8B1BD45A0200170A84 /* SAStickyHeaderView.swift in Sources */,

@@ -48,7 +48,7 @@ extension SAStickyHeaderView {
         }
         
         // animate image
-        UIView.transitionWithView(imageView, duration:0.5, options:.TransitionCrossDissolve, animations: {
+        UIView.transitionWithView(imageView, duration:0.4, options:.TransitionCrossDissolve, animations: {
             self.imageView.image = animateImage
         }, completion: nil)
     }
