@@ -42,12 +42,12 @@
 		100DAD551BD3CEBC00170A84 /* SAStickyHeaderExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SAStickyHeaderExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		100DAD591BD3CEBC00170A84 /* SAStickyHeaderExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAStickyHeaderExampleUITests.swift; sourceTree = "<group>"; };
 		100DAD5B1BD3CEBC00170A84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		100DAD871BD45A0200170A84 /* SAStickyHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SAStickyHeaderView.swift; path = Classes/SAStickyHeaderView.swift; sourceTree = "<group>"; };
-		100DAD881BD45A0200170A84 /* SAStickyHeaderView+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Image.swift"; path = "Classes/SAStickyHeaderView+Image.swift"; sourceTree = "<group>"; };
-		100DAD891BD45A0200170A84 /* SAStickyHeaderView+Gesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Gesture.swift"; path = "Classes/SAStickyHeaderView+Gesture.swift"; sourceTree = "<group>"; };
-		100DAD8A1BD45A0200170A84 /* SAStickyHeaderView+Scroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Scroll.swift"; path = "Classes/SAStickyHeaderView+Scroll.swift"; sourceTree = "<group>"; };
-		100DAD8F1BD4613500170A84 /* SAStickyHeaderView+Observe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Observe.swift"; path = "Classes/SAStickyHeaderView+Observe.swift"; sourceTree = "<group>"; };
-		107D7C591BEEC5C000859F3F /* SAStickyHeaderView+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Helper.swift"; path = "Classes/SAStickyHeaderView+Helper.swift"; sourceTree = "<group>"; };
+		100DAD871BD45A0200170A84 /* SAStickyHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SAStickyHeaderView.swift; path = ../Pod/Classes/SAStickyHeaderView.swift; sourceTree = "<group>"; };
+		100DAD881BD45A0200170A84 /* SAStickyHeaderView+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Image.swift"; path = "../Pod/Classes/SAStickyHeaderView+Image.swift"; sourceTree = "<group>"; };
+		100DAD891BD45A0200170A84 /* SAStickyHeaderView+Gesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Gesture.swift"; path = "../Pod/Classes/SAStickyHeaderView+Gesture.swift"; sourceTree = "<group>"; };
+		100DAD8A1BD45A0200170A84 /* SAStickyHeaderView+Scroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Scroll.swift"; path = "../Pod/Classes/SAStickyHeaderView+Scroll.swift"; sourceTree = "<group>"; };
+		100DAD8F1BD4613500170A84 /* SAStickyHeaderView+Observe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Observe.swift"; path = "../Pod/Classes/SAStickyHeaderView+Observe.swift"; sourceTree = "<group>"; };
+		107D7C591BEEC5C000859F3F /* SAStickyHeaderView+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Helper.swift"; path = "../Pod/Classes/SAStickyHeaderView+Helper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +92,6 @@
 			children = (
 				100DAD441BD3CEBC00170A84 /* AppDelegate.swift */,
 				100DAD461BD3CEBC00170A84 /* ViewController.swift */,
-				100DAD481BD3CEBC00170A84 /* Main.storyboard */,
 				100DAD641BD3CECB00170A84 /* Supporting Files */,
 			);
 			path = SAStickyHeaderExample;
@@ -110,6 +109,7 @@
 		100DAD641BD3CECB00170A84 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				100DAD481BD3CEBC00170A84 /* Main.storyboard */,
 				100DAD4B1BD3CEBC00170A84 /* Assets.xcassets */,
 				100DAD4D1BD3CEBC00170A84 /* LaunchScreen.storyboard */,
 				100DAD501BD3CEBC00170A84 /* Info.plist */,
@@ -128,14 +128,6 @@
 		100DAD661BD3CEE100170A84 /* SAStickyHeader */ = {
 			isa = PBXGroup;
 			children = (
-				100DAD781BD459E800170A84 /* Pod */,
-			);
-			name = SAStickyHeader;
-			sourceTree = "<group>";
-		};
-		100DAD781BD459E800170A84 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
 				100DAD871BD45A0200170A84 /* SAStickyHeaderView.swift */,
 				100DAD8F1BD4613500170A84 /* SAStickyHeaderView+Observe.swift */,
 				100DAD881BD45A0200170A84 /* SAStickyHeaderView+Image.swift */,
@@ -143,8 +135,7 @@
 				100DAD8A1BD45A0200170A84 /* SAStickyHeaderView+Scroll.swift */,
 				107D7C591BEEC5C000859F3F /* SAStickyHeaderView+Helper.swift */,
 			);
-			name = Pod;
-			path = ../Pod;
+			name = SAStickyHeader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
