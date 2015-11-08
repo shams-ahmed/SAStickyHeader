@@ -41,7 +41,7 @@ public class SAStickyHeaderView: UIView {
     // MARK:
     // MARK: Init
     
-    required public init(frame: CGRect, table: UITableView, image: [UIImage?]?) {
+    required public init(frame: CGRect=CGRectZero, table: UITableView, image: [UIImage?]?) {
         tableView = table
         
         super.init(frame: frame)
