@@ -13,7 +13,7 @@ Github example images from: https://octodex.github.com
 */
 enum SAGithubImage: String {
     case Gracehoppertocat
-    case HipsterPartycat
+    case Hipster
     case Mountietocat
     case Octoliberty
     case ProfessortocatV2
@@ -22,7 +22,7 @@ enum SAGithubImage: String {
 class ViewController: UITableViewController {
     
     // list of github images for example, for DEMO purposes i've loaded everything first but can easily be added afterworld with images.append()
-    let images = [UIImage(named: SAGithubImage.Gracehoppertocat.rawValue), UIImage(named: SAGithubImage.HipsterPartycat.rawValue), UIImage(named: SAGithubImage.Mountietocat.rawValue), UIImage(named: SAGithubImage.Octoliberty.rawValue), UIImage(named: SAGithubImage.ProfessortocatV2.rawValue)]
+    let images = [UIImage(named: SAGithubImage.Gracehoppertocat.rawValue), UIImage(named: SAGithubImage.Hipster.rawValue), UIImage(named: SAGithubImage.Mountietocat.rawValue), UIImage(named: SAGithubImage.Octoliberty.rawValue), UIImage(named: SAGithubImage.ProfessortocatV2.rawValue)]
     
     // MARK:
     // MARK: Lifecycle
