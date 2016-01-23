@@ -12,17 +12,24 @@ import UIKit
 Github example images from: https://octodex.github.com
 */
 enum SAGithubImage: String {
-    case Gracehoppertocat
-    case Hipster
-    case Mountietocat
-    case Octoliberty
-    case ProfessortocatV2
+    case Example1 // Gracehoppertocat
+    case Example2 // Hipster
+    case Example3 // Mountietocat
+    case Example4 // Octoliberty
+    case Example5 // ProfessortocatV2
 }
 
+/// Example View Controller
 class ViewController: UITableViewController {
     
     // list of github images for example, for DEMO purposes i've loaded everything first but can easily be added afterworld with images.append()
-    let images = [UIImage(named: SAGithubImage.Gracehoppertocat.rawValue), UIImage(named: SAGithubImage.Hipster.rawValue), UIImage(named: SAGithubImage.Mountietocat.rawValue), UIImage(named: SAGithubImage.Octoliberty.rawValue), UIImage(named: SAGithubImage.ProfessortocatV2.rawValue)]
+    let images = [
+        UIImage(named: SAGithubImage.Example1.rawValue),
+        UIImage(named: SAGithubImage.Example2.rawValue),
+        UIImage(named: SAGithubImage.Example3.rawValue),
+        UIImage(named: SAGithubImage.Example4.rawValue),
+        UIImage(named: SAGithubImage.Example5.rawValue)
+    ]
     
     // MARK:
     // MARK: Lifecycle
@@ -54,7 +61,6 @@ class ViewController: UITableViewController {
     
     func setupView() {
         // EXAMPLE 1: SAStickyHeaderView with a frame and optional image array.
-        
         tableView.tableHeaderView = SAStickyHeaderView(frame: CGRect(x: 0, y: 0, width: CGRectGetWidth(view.frame), height: 400), table: tableView, image: images)
     }
 }
