@@ -110,8 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				100DAD481BD3CEBC00170A84 /* Main.storyboard */,
-				100DAD4B1BD3CEBC00170A84 /* Assets.xcassets */,
 				100DAD4D1BD3CEBC00170A84 /* LaunchScreen.storyboard */,
+				100DAD4B1BD3CEBC00170A84 /* Assets.xcassets */,
 				100DAD501BD3CEBC00170A84 /* Info.plist */,
 			);
 			name = "Supporting Files";
