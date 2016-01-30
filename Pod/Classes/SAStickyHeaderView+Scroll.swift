@@ -13,6 +13,7 @@ extension SAStickyHeaderView {
     // MARK:
     // MARK: Scroll
 
+    /// Update header view from a drag movement
     func updateImageViewFromScrollEvent(tableView: UITableView) {
         let insert = tableView.contentInset
         let offset = -(tableView.contentOffset.y + insert.top)

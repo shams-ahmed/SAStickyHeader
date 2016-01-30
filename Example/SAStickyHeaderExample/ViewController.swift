@@ -52,15 +52,29 @@ class ViewController: UITableViewController {
     // MARK: TableViewDelegate
 
     // EXAMPLE 2: Using Delegate
-//    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        return SAStickyHeaderView(table: tableView, image: images)
-//    }
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return SAStickyHeaderView(table: tableView, image: images)
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCellWithIdentifier("Cell1") else {
+            assertionFailure()
+            
+            return UITableViewCell()
+        }
+        
+        return cell
+    }
     
     // MARK:
     // MARK: Setup
     
     func setupView() {
         // EXAMPLE 1: SAStickyHeaderView with a frame and optional image array.
-        tableView.tableHeaderView = SAStickyHeaderView(frame: CGRect(x: 0, y: 0, width: CGRectGetWidth(view.frame), height: 400), table: tableView, image: images)
+//        tableView.tableHeaderView = SAStickyHeaderView(frame: CGRect(x: 0, y: 0, width: CGRectGetWidth(view.frame), height: 400), table: tableView, image: images)
     }
 }
