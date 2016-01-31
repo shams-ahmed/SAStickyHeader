@@ -8,12 +8,25 @@
 
 import UIKit
 
-extension SAStickyHeaderView {
+extension SAStickyHeaderView: UIGestureRecognizerDelegate {
     
     // MARK:
     // MARK: Gesture
     
     internal func didSwipeImageView(sender: UISwipeGestureRecognizer) {
         updateImageWithDirection(sender.direction)
+    }
+    
+    internal func didTapHeaderView(sender: UISwipeGestureRecognizer) {
+        // Unimplemented method
+    }
+    
+    // MARK:
+    // MARK: UIGestureRecognizerDelegate
+    
+    public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+        isTouchingView = touch.view?.superview == self
+        
+        return true
     }
 }

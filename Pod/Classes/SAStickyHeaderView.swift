@@ -1,9 +1,9 @@
 //
 //  SAStickyHeaderView.swift
-//  SA
+//  SAStickyHeaderExample
 //
 //  Created by shams ahmed on 18/10/2015.
-//  Copyright © 2015 Maxfab. All rights reserved.
+//  Copyright © 2015 SA. All rights reserved.
 //
 
 import UIKit
@@ -18,12 +18,19 @@ public class SAStickyHeaderView: UIView {
     internal var bottomLayoutConstraint = NSLayoutConstraint()
     internal var containerLayoutConstraint = NSLayoutConstraint()
     
-    /// need to reference to make this control and easy and lightweight as much as possible
-    private let tableView: UITableView
+    /// Reference to make this control and easy and lightweight as much as possible
+    internal let tableView: UITableView
+
+    /// Listen to touch events to fix scroll issues
+    internal lazy var tapGesture: UITapGestureRecognizer = {  [unowned self] in
+        return UITapGestureRecognizer(target: self, action: "didTapHeaderView:")
+    }()
+    
+    /// Flag to dictate if user has tapped on this view
+    internal var isTouchingView: Bool = false
     
     /// images to add to header view
     public var images = [UIImage?]() {
-        // As of Swift 2.0, there is still no support for KVO, so to workaround this issue i observer when it set
         didSet {
             didUpdateImages()
         }
@@ -48,11 +55,13 @@ public class SAStickyHeaderView: UIView {
         
         setup()
         setupScrollViewObserve(table)
+        
         addImages(image)
     }
     
     public required init?(coder aDecoder: NSCoder) {
-        self.tableView = UITableView()
+        tableView = UITableView()
+        
         super.init(coder: aDecoder)
         
         setup()
@@ -93,19 +102,22 @@ public class SAStickyHeaderView: UIView {
     add left and right gesture to imageView
     */
     private func setupGesture() {
-        let action: Selector = "didSwipeImageView:"
-        let leftGesture = UISwipeGestureRecognizer(target: self, action: action)
-        let rightGesture = UISwipeGestureRecognizer(target: self, action: action)
+        let swipeAction: Selector = "didSwipeImageView:"
+        let leftGesture = UISwipeGestureRecognizer(target: self, action: swipeAction)
+        let rightGesture = UISwipeGestureRecognizer(target: self, action: swipeAction)
         
         leftGesture.direction = UISwipeGestureRecognizerDirection.Left
         rightGesture.direction = UISwipeGestureRecognizerDirection.Right
+        tapGesture.cancelsTouchesInView = false
+        tapGesture.delegate = self
         
         addGestureRecognizer(leftGesture)
         addGestureRecognizer(rightGesture)
+        tableView.addGestureRecognizer(tapGesture)
     }
     
     private func setupScrollViewObserve(table: UITableView) {
-        table.addObserver(self, forKeyPath: "contentOffset", options: NSKeyValueObservingOptions.New, context: nil)
+        table.addObserver(self, forKeyPath: "contentOffset", options: .New, context: nil)
     }
     
     // MARK:
@@ -125,11 +137,9 @@ public class SAStickyHeaderView: UIView {
     
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[containerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["containerView" : containerView]))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[containerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["containerView" : containerView]))
-        
         addConstraint(containerLayoutConstraint)
         
         containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[imageView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["imageView" : imageView]))
-
         containerView.addConstraint(bottomLayoutConstraint)
         containerView.addConstraint(heightLayoutConstraint)
     }

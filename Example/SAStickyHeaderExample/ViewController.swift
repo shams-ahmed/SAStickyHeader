@@ -62,7 +62,7 @@ class ViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCellWithIdentifier("Cell1") else {
-            assertionFailure()
+            assertionFailure() // Demo only
             
             return UITableViewCell()
         }
