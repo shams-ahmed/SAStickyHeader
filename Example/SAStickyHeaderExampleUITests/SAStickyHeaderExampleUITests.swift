@@ -32,70 +32,90 @@ class SAStickyHeaderExampleUITests: XCTestCase {
     }
     
     // MARK:
-    // MARK: Test
+    // MARK: UI Test
     
     func testImageExpand() {
-        XCUIApplication().childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Table).element.swipeDown()
+        XCUIDevice.sharedDevice().orientation = .Portrait
+        
+        let table = XCUIApplication().otherElements.containingType(.NavigationBar, identifier:"SAStickyHeaderExample.View").childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Table).element
+        table.tap()
+        table.tap()
+        table.tap()
     }
     
     func testSwipeLeft() {
-        let table = XCUIApplication().childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Table).element
-        table.swipeRight()
-        table.swipeRight()
-        table.swipeRight()
-        table.swipeRight()
-        table.swipeRight()
+        XCUIDevice.sharedDevice().orientation = .Portrait
+        
+        let table = XCUIApplication().otherElements.containingType(.NavigationBar, identifier:"SAStickyHeaderExample.View").childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Table).element
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
     }
 
     func testSwipeRight() {
-        let table = XCUIApplication().childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Table).element
-        table.swipeLeft()
-        table.swipeLeft()
-        table.swipeLeft()
-        table.swipeLeft()
+        XCUIDevice.sharedDevice().orientation = .Portrait
+        
+        let table = XCUIApplication().otherElements.containingType(.NavigationBar, identifier:"SAStickyHeaderExample.View").childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Table).element
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
     }
 
     func testSwipeLeftToRight() {
-        let table = XCUIApplication().childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Table).element
-        table.swipeLeft()
-        table.swipeLeft()
-        table.swipeLeft()
-        table.swipeLeft()
-        table.swipeLeft()
-        table.swipeLeft()
-        table.doubleTap()
-        table.swipeLeft()
-        table.swipeLeft()
-        table.swipeRight()
-        table.swipeRight()
-        table.swipeRight()
-        table.swipeRight()
-        table.swipeRight()
-        table.swipeRight()
-        table.swipeRight()
-        table.swipeRight()
-        table.swipeRight()
-        table.swipeDown()
+        XCUIDevice.sharedDevice().orientation = .Portrait
+        
+        let table = XCUIApplication().otherElements.containingType(.NavigationBar, identifier:"SAStickyHeaderExample.View").childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Table).element
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
+        table.tap()
     }
     
     func testSwipeUpDown() {
-        
-        let app = XCUIApplication()
-        let table = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Table).element
-        table.swipeDown()
-        table.swipeUp()
         XCUIDevice.sharedDevice().orientation = .Portrait
+        
+        let table = XCUIApplication().otherElements.containingType(.NavigationBar, identifier:"SAStickyHeaderExample.View").childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Table).element
+        table.tap()
+        table.tap()
     }
     
     func testOrientation() {
         XCUIDevice.sharedDevice().orientation = .LandscapeRight
         
-        let table = XCUIApplication().childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Table).element
-        table.swipeLeft()
-        table.swipeRight()
-        table.swipeRight()
-        table.swipeDown()
-        table.swipeDown()
-        table.swipeRight()
+        let app = XCUIApplication()
+        let table = app.otherElements.containingType(.NavigationBar, identifier:"SAStickyHeaderExample.View").childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Table).element
+        table.tap()
+        table.tap()
+        
+        let tablesQuery = app.tables
+        let loremIpsumIsSimplyDummyTextOfThePrintingAndTypesettingIndustryStaticText = tablesQuery.childrenMatchingType(.Cell).elementBoundByIndex(7).staticTexts["Lorem Ipsum is simply dummy text of the printing and typesetting industry"]
+        loremIpsumIsSimplyDummyTextOfThePrintingAndTypesettingIndustryStaticText.tap()
+        loremIpsumIsSimplyDummyTextOfThePrintingAndTypesettingIndustryStaticText.tap()
+        loremIpsumIsSimplyDummyTextOfThePrintingAndTypesettingIndustryStaticText.swipeLeft()
+        loremIpsumIsSimplyDummyTextOfThePrintingAndTypesettingIndustryStaticText.tap()
+        loremIpsumIsSimplyDummyTextOfThePrintingAndTypesettingIndustryStaticText.tap()
+        tablesQuery.childrenMatchingType(.Cell).elementBoundByIndex(6).staticTexts["Lorem Ipsum is simply dummy text of the printing and typesetting industry"].tap()
     }
 }
