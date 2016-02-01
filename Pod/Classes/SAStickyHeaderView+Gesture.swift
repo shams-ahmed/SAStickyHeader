@@ -17,16 +17,21 @@ extension SAStickyHeaderView: UIGestureRecognizerDelegate {
         updateImageWithDirection(sender.direction)
     }
     
-    internal func didTapHeaderView(sender: UISwipeGestureRecognizer) {
-        // Unimplemented method
+    internal func didTapHeaderView(sender: UIGestureRecognizer) {
+        guard #available(iOS 9, *), let forceGestureRecognizer = sender as? SASForceGestureRecognizer else {
+            return
+        }
+        
+        updateImageWithTransformation(forceGestureRecognizer.forcePressure)
     }
     
     // MARK:
     // MARK: UIGestureRecognizerDelegate
     
     public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+        // Superview can either by itself or any UITable class
         isTouchingView = touch.view?.superview == self
         
-        return true
+        return true // default value set from framework
     }
 }

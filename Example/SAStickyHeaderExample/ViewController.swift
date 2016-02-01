@@ -22,7 +22,7 @@ enum SAGithubImage: String {
 /// Example View Controller
 class ViewController: UITableViewController {
     
-    // list of github images for example, for DEMO purposes i've loaded everything first but can easily be added afterworld with images.append()
+    // list of github images, for Demo purposes i've loaded everything first but can easily be inserted with 'images.append()'
     let images = [
         UIImage(named: SAGithubImage.Example1.rawValue),
         UIImage(named: SAGithubImage.Example2.rawValue),
@@ -52,9 +52,9 @@ class ViewController: UITableViewController {
     // MARK: TableViewDelegate
 
     // EXAMPLE 2: Using Delegate
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return SAStickyHeaderView(table: tableView, image: images)
-    }
+//    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        return SAStickyHeaderView(table: tableView, image: images)
+//    }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
@@ -62,7 +62,7 @@ class ViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCellWithIdentifier("Cell1") else {
-            assertionFailure() // Demo only
+            assertionFailure("Demo project does not have regisited cell set")
             
             return UITableViewCell()
         }
@@ -75,6 +75,6 @@ class ViewController: UITableViewController {
     
     func setupView() {
         // EXAMPLE 1: SAStickyHeaderView with a frame and optional image array.
-//        tableView.tableHeaderView = SAStickyHeaderView(frame: CGRect(x: 0, y: 0, width: CGRectGetWidth(view.frame), height: 400), table: tableView, image: images)
+        tableView.tableHeaderView = SAStickyHeaderView(frame: CGRect(x: 0, y: 0, width: CGRectGetWidth(view.frame), height: 400), table: tableView, image: images)
     }
 }

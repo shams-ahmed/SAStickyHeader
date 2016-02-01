@@ -11,7 +11,7 @@ import UIKit
 extension SAStickyHeaderView {
  
     // MARK:
-    // MARK: Image
+    // MARK: UI Image
     
     func updateImageWithDirection(direction: UISwipeGestureRecognizerDirection) {
         var animateImage: UIImage?
@@ -19,6 +19,8 @@ extension SAStickyHeaderView {
         // loop for images and swipe them out depending on a match and direction of swipe
         for (index, element) in images.enumerate() {
             guard let first = images.first, let last = images.last else {
+                assertionFailure("SAStickyHeaderView: No images have been set!")
+                
                 return
             }
         
@@ -50,13 +52,25 @@ extension SAStickyHeaderView {
         // animate image
         UIView.transitionWithView(imageView, duration:0.4, options:.TransitionCrossDissolve, animations: {
             self.imageView.image = animateImage
+            self.imageView.transform = CGAffineTransformIdentity
         }, completion: nil)
     }
     
-    func didUpdateImages() {
+    internal func updateImageWithTransformation(pressure: CGFloat) {
+        let pressure = max(1, pressure)
+        
+        imageView.transform = CGAffineTransformMakeScale(pressure, pressure)
+    }
+    
+    // MARK:
+    // MARK: Images
+    
+    /// set first image whenever new images are added
+    internal func didUpdateImages() {
         // add first image to imageView and display it
         if imageView.image == nil, let firstImage = images.first {
             imageView.image = firstImage
+            imageView.transform = CGAffineTransformIdentity
         }
     }
 }

@@ -14,9 +14,9 @@ extension SAStickyHeaderView {
     // MARK: Scroll
 
     /// Update header view from a drag movement
-    func updateImageViewFromScrollEvent(tableView: UITableView) {
-        // if current view is not self, just return to avoid any glitch 
+    internal func updateImageViewFromScrollEvent(tableView: UITableView) {
         if !isTouchingView {
+            // if current view is not self, just return to avoid any glitch
             return
         }
         

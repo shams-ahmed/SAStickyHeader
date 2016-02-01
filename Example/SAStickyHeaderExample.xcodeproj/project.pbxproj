@@ -18,7 +18,8 @@
 		100DAD8D1BD45A0200170A84 /* SAStickyHeaderView+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD891BD45A0200170A84 /* SAStickyHeaderView+Gesture.swift */; };
 		100DAD8E1BD45A0200170A84 /* SAStickyHeaderView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD8A1BD45A0200170A84 /* SAStickyHeaderView+Scroll.swift */; };
 		100DAD901BD4613500170A84 /* SAStickyHeaderView+Observe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DAD8F1BD4613500170A84 /* SAStickyHeaderView+Observe.swift */; };
-		107D7C5A1BEEC5C000859F3F /* SAStickyHeaderView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107D7C591BEEC5C000859F3F /* SAStickyHeaderView+Helper.swift */; };
+		101C14041C5EA56800CB42C1 /* SASForceGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101C14031C5EA56800CB42C1 /* SASForceGestureRecognizer.swift */; };
+		107D7C5A1BEEC5C000859F3F /* SAStickyHeader+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107D7C591BEEC5C000859F3F /* SAStickyHeader+Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +48,8 @@
 		100DAD891BD45A0200170A84 /* SAStickyHeaderView+Gesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Gesture.swift"; path = "../Pod/Classes/SAStickyHeaderView+Gesture.swift"; sourceTree = "<group>"; };
 		100DAD8A1BD45A0200170A84 /* SAStickyHeaderView+Scroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Scroll.swift"; path = "../Pod/Classes/SAStickyHeaderView+Scroll.swift"; sourceTree = "<group>"; };
 		100DAD8F1BD4613500170A84 /* SAStickyHeaderView+Observe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Observe.swift"; path = "../Pod/Classes/SAStickyHeaderView+Observe.swift"; sourceTree = "<group>"; };
-		107D7C591BEEC5C000859F3F /* SAStickyHeaderView+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeaderView+Helper.swift"; path = "../Pod/Classes/SAStickyHeaderView+Helper.swift"; sourceTree = "<group>"; };
+		101C14031C5EA56800CB42C1 /* SASForceGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SASForceGestureRecognizer.swift; path = ../Pod/Classes/SASForceGestureRecognizer.swift; sourceTree = "<group>"; };
+		107D7C591BEEC5C000859F3F /* SAStickyHeader+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SAStickyHeader+Helper.swift"; path = "../Pod/Classes/SAStickyHeader+Helper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,9 +135,26 @@
 				100DAD881BD45A0200170A84 /* SAStickyHeaderView+Image.swift */,
 				100DAD891BD45A0200170A84 /* SAStickyHeaderView+Gesture.swift */,
 				100DAD8A1BD45A0200170A84 /* SAStickyHeaderView+Scroll.swift */,
-				107D7C591BEEC5C000859F3F /* SAStickyHeaderView+Helper.swift */,
+				10C5631D1C5ED094002B860C /* gesture */,
+				109100681C5EA4580019969A /* support */,
 			);
 			name = SAStickyHeader;
+			sourceTree = "<group>";
+		};
+		109100681C5EA4580019969A /* support */ = {
+			isa = PBXGroup;
+			children = (
+				107D7C591BEEC5C000859F3F /* SAStickyHeader+Helper.swift */,
+			);
+			name = support;
+			sourceTree = "<group>";
+		};
+		10C5631D1C5ED094002B860C /* gesture */ = {
+			isa = PBXGroup;
+			children = (
+				101C14031C5EA56800CB42C1 /* SASForceGestureRecognizer.swift */,
+			);
+			name = gesture;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,7 +266,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -x /usr/local/bin/swiftlint ]; then\n/usr/local/bin/swiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "#if [ -x /usr/local/bin/swiftlint ]; then\n#/usr/local/bin/swiftlint\n#else\n#echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\n#fi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -260,7 +279,8 @@
 				100DAD451BD3CEBC00170A84 /* AppDelegate.swift in Sources */,
 				100DAD8D1BD45A0200170A84 /* SAStickyHeaderView+Gesture.swift in Sources */,
 				100DAD8E1BD45A0200170A84 /* SAStickyHeaderView+Scroll.swift in Sources */,
-				107D7C5A1BEEC5C000859F3F /* SAStickyHeaderView+Helper.swift in Sources */,
+				101C14041C5EA56800CB42C1 /* SASForceGestureRecognizer.swift in Sources */,
+				107D7C5A1BEEC5C000859F3F /* SAStickyHeader+Helper.swift in Sources */,
 				100DAD8C1BD45A0200170A84 /* SAStickyHeaderView+Image.swift in Sources */,
 				100DAD901BD4613500170A84 /* SAStickyHeaderView+Observe.swift in Sources */,
 				100DAD8B1BD45A0200170A84 /* SAStickyHeaderView.swift in Sources */,
@@ -341,7 +361,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -380,7 +400,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

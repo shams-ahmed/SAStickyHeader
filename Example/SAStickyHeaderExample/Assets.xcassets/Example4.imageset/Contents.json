@@ -7,10 +7,12 @@
     },
     {
       "idiom" : "universal",
+      "filename" : "Example4-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Example4-2.png",
       "scale" : "3x"
     }
   ],

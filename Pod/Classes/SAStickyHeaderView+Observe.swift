@@ -19,6 +19,10 @@ public extension SAStickyHeaderView {
         context: UnsafeMutablePointer<Void>) {
         if let tableView = object as? UITableView {
             updateImageViewFromScrollEvent(tableView)
+        } else if let gesture = object as? SASForceGestureRecognizer {
+            updateImageWithTransformation(gesture.forcePressure)
         }
+        
+        
     }
 }

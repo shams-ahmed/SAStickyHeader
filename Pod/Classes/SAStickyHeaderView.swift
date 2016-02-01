@@ -11,7 +11,9 @@ import UIKit
 /// SAStickyHeaderView - Simple sticky header with multiple image support via swipe gestures
 public class SAStickyHeaderView: UIView {
     
-    internal let imageView: UIImageView = UIImageView()
+//    public let imageView: UIImageView = UIImageView()
+    public let imageView: UIImageView = UIImageView(image: UIImage(named: SAGithubImage.Example1.rawValue))
+    
     internal let containerView = UIView()
     
     internal var heightLayoutConstraint = NSLayoutConstraint()
@@ -22,8 +24,16 @@ public class SAStickyHeaderView: UIView {
     internal let tableView: UITableView
 
     /// Listen to touch events to fix scroll issues
+    
+    
     internal lazy var tapGesture: UITapGestureRecognizer = {  [unowned self] in
-        return UITapGestureRecognizer(target: self, action: "didTapHeaderView:")
+        let selector: Selector = "didTapHeaderView:"
+        
+        if #available(iOS 9, *) {
+            return SASForceGestureRecognizer(target: self, action: selector)
+        } else {
+            return UITapGestureRecognizer(target: self, action: selector)
+        }
     }()
     
     /// Flag to dictate if user has tapped on this view
@@ -118,6 +128,11 @@ public class SAStickyHeaderView: UIView {
     
     private func setupScrollViewObserve(table: UITableView) {
         table.addObserver(self, forKeyPath: "contentOffset", options: .New, context: nil)
+        
+        if #available(iOS 9, *), let gesture = tapGesture as? SASForceGestureRecognizer {
+//            gesture.addObserver(self, forKeyPath: "forcePressure", options: .New, context: nil)
+            gesture.addObserver(self, forKeyPath: "forcePressure", options: [.New, .Old], context: nil)
+        }
     }
     
     // MARK:
