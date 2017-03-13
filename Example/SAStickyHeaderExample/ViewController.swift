@@ -11,24 +11,24 @@ import UIKit
 /**
 Github example images from: https://octodex.github.com
 */
-enum SAGithubImage: String {
-    case Example1 // Gracehoppertocat
-    case Example2 // Hipster
-    case Example3 // Mountietocat
-    case Example4 // Octoliberty
-    case Example5 // ProfessortocatV2
+enum GithubImage: String {
+    case example1 = "Example1" // Gracehoppertocat
+    case example2 = "Example2" // Hipster
+    case example3 = "Example3" // Mountietocat
+    case example4 = "Example4" // Octoliberty
+    case example5 = "Example5" // ProfessortocatV2
 }
 
 /// Example View Controller
 class ViewController: UITableViewController {
     
     // list of github images, for Demo purposes i've loaded everything first but can easily be inserted with 'images.append()'
-    let images = [
-        UIImage(named: SAGithubImage.Example1.rawValue),
-        UIImage(named: SAGithubImage.Example2.rawValue),
-        UIImage(named: SAGithubImage.Example3.rawValue),
-        UIImage(named: SAGithubImage.Example4.rawValue),
-        UIImage(named: SAGithubImage.Example5.rawValue)
+    private let images = [
+        UIImage(named: GithubImage.example1.rawValue),
+        UIImage(named: GithubImage.example2.rawValue),
+        UIImage(named: GithubImage.example3.rawValue),
+        UIImage(named: GithubImage.example4.rawValue),
+        UIImage(named: GithubImage.example5.rawValue)
     ]
     
     // MARK:
@@ -39,21 +39,13 @@ class ViewController: UITableViewController {
         
         setupView()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
+
     // MARK:
     // MARK: TableViewDelegate
 
     // EXAMPLE 2: Using Delegate
-//    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        return SAStickyHeaderView(table: tableView, image: images)
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        return SAStickyHeaderView(table: tableView, with: images)
 //    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,13 +53,10 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell1") else {
-            assertionFailure("Demo project does not have regisited cell set")
-            
-            return UITableViewCell()
-        }
+        let identifier = "Cell1"
         
-        return cell
+        return tableView.dequeueReusableCell(withIdentifier: identifier)
+            ?? UITableViewCell(style: .default, reuseIdentifier: identifier)
     }
     
     // MARK:
@@ -75,6 +64,9 @@ class ViewController: UITableViewController {
     
     func setupView() {
         // EXAMPLE 1: SAStickyHeaderView with a frame and optional image array.
-        tableView.tableHeaderView = SAStickyHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 400), table: tableView, image: images)
+        tableView.tableHeaderView = SAStickyHeaderView(CGRect(x: 0, y: 0, width: view.frame.width, height: 400),
+            table: tableView,
+            with: images
+        )
     }
 }

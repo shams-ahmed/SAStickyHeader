@@ -57,7 +57,7 @@ open class SAStickyHeaderView: UIView {
     // MARK:
     // MARK: Init
     
-    required public init(frame: CGRect=CGRect.zero, table: UITableView, image: [UIImage?]?) {
+    required public init(_ frame: CGRect=CGRect.zero, table: UITableView, with images: [UIImage?]?=nil) {
         tableView = table
         
         super.init(frame: frame)
@@ -65,7 +65,7 @@ open class SAStickyHeaderView: UIView {
         setup()
         setupScrollViewObserve(table)
         
-        addImages(image)
+        addImages(images)
     }
     
     public required init?(coder aDecoder: NSCoder) {
