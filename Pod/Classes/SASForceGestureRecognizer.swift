@@ -17,20 +17,20 @@ internal class SASForceGestureRecognizer: UITapGestureRecognizer {
     // MARK:
     // MARK: Override
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent) {
-        super.touchesBegan(touches, withEvent: event)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
+        super.touchesBegan(touches, with: event)
         
         updateForce(touches)
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent) {
-        super.touchesMoved(touches, withEvent: event)
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent) {
+        super.touchesMoved(touches, with: event)
         
         updateForce(touches)
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent) {
-        super.touchesEnded(touches, withEvent: event)
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent) {
+        super.touchesEnded(touches, with: event)
         
         updateForce(touches)
     }
@@ -38,7 +38,7 @@ internal class SASForceGestureRecognizer: UITapGestureRecognizer {
     // MARK:
     // MARK: Force
     
-    internal func updateForce(touches: Set<UITouch>) {
+    internal func updateForce(_ touches: Set<UITouch>) {
         if #available(iOS 9.0, *) {
             forcePressure ?= touches.first?.force
         }

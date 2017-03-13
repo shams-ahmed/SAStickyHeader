@@ -9,10 +9,9 @@
 import UIKit
 
 /// SAStickyHeaderView - Simple sticky header with multiple image support via swipe gestures
-public class SAStickyHeaderView: UIView {
+open class SAStickyHeaderView: UIView {
     
-//    public let imageView: UIImageView = UIImageView()
-    public let imageView: UIImageView = UIImageView(image: UIImage(named: SAGithubImage.Example1.rawValue))
+    open let imageView: UIImageView = UIImageView()
     
     internal let containerView = UIView()
     
@@ -27,7 +26,7 @@ public class SAStickyHeaderView: UIView {
     
     
     internal lazy var tapGesture: UITapGestureRecognizer = {  [unowned self] in
-        let selector: Selector = "didTapHeaderView:"
+        let selector = #selector(didTapHeaderView(_:))
         
         if #available(iOS 9, *) {
             return SASForceGestureRecognizer(target: self, action: selector)
@@ -40,7 +39,7 @@ public class SAStickyHeaderView: UIView {
     internal var isTouchingView: Bool = false
     
     /// images to add to header view
-    public var images = [UIImage?]() {
+    open var images = [UIImage?]() {
         didSet {
             didUpdateImages()
         }
@@ -49,7 +48,7 @@ public class SAStickyHeaderView: UIView {
     // MARK:
     // MARK: Nib
     
-    public override func awakeFromNib() {
+    open override func awakeFromNib() {
         super.awakeFromNib()
         
         setup()
@@ -58,7 +57,7 @@ public class SAStickyHeaderView: UIView {
     // MARK:
     // MARK: Init
     
-    required public init(frame: CGRect=CGRectZero, table: UITableView, image: [UIImage?]?) {
+    required public init(frame: CGRect=CGRect.zero, table: UITableView, image: [UIImage?]?) {
         tableView = table
         
         super.init(frame: frame)
@@ -84,40 +83,40 @@ public class SAStickyHeaderView: UIView {
     // MARK:
     // MARK: Setup
     
-    private func setup() {
+    fileprivate func setup() {
         setupView()
         setupConsistent()
         setupGesture()
     }
     
-    private func setupView() {
+    fileprivate func setupView() {
         containerView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(containerView)
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
-        imageView.contentMode = .ScaleAspectFill
+        imageView.contentMode = .scaleAspectFill
         containerView.addSubview(imageView)
     }
     
-    private func setupConsistent() {
-        bottomLayoutConstraint = NSLayoutConstraint(item: imageView, attribute: .Bottom, relatedBy: .Equal, toItem: containerView, attribute: .Bottom, multiplier: 1.0, constant: 0.0)
+    fileprivate func setupConsistent() {
+        bottomLayoutConstraint = NSLayoutConstraint(item: imageView, attribute: .bottom, relatedBy: .equal, toItem: containerView, attribute: .bottom, multiplier: 1.0, constant: 0.0)
         
-        heightLayoutConstraint = NSLayoutConstraint(item: imageView, attribute: .Height, relatedBy: .Equal, toItem: containerView, attribute: .Height, multiplier: 1.0, constant: 0.0)
+        heightLayoutConstraint = NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: containerView, attribute: .height, multiplier: 1.0, constant: 0.0)
         
-        containerLayoutConstraint = NSLayoutConstraint(item: containerView, attribute: .Height, relatedBy: .Equal, toItem: self, attribute: .Height, multiplier: 1.0, constant: 0.0)
+        containerLayoutConstraint = NSLayoutConstraint(item: containerView, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 1.0, constant: 0.0)
     }
     
     /**
     add left and right gesture to imageView
     */
-    private func setupGesture() {
-        let swipeAction: Selector = "didSwipeImageView:"
+    fileprivate func setupGesture() {
+        let swipeAction = #selector(SAStickyHeaderView.didSwipeImageView(_:))
         let leftGesture = UISwipeGestureRecognizer(target: self, action: swipeAction)
         let rightGesture = UISwipeGestureRecognizer(target: self, action: swipeAction)
         
-        leftGesture.direction = UISwipeGestureRecognizerDirection.Left
-        rightGesture.direction = UISwipeGestureRecognizerDirection.Right
+        leftGesture.direction = UISwipeGestureRecognizerDirection.left
+        rightGesture.direction = UISwipeGestureRecognizerDirection.right
         tapGesture.cancelsTouchesInView = false
         tapGesture.delegate = self
         
@@ -126,35 +125,35 @@ public class SAStickyHeaderView: UIView {
         tableView.addGestureRecognizer(tapGesture)
     }
     
-    private func setupScrollViewObserve(table: UITableView) {
-        table.addObserver(self, forKeyPath: "contentOffset", options: .New, context: nil)
+    fileprivate func setupScrollViewObserve(_ table: UITableView) {
+        table.addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
         
         if #available(iOS 9, *), let gesture = tapGesture as? SASForceGestureRecognizer {
 //            gesture.addObserver(self, forKeyPath: "forcePressure", options: .New, context: nil)
-            gesture.addObserver(self, forKeyPath: "forcePressure", options: [.New, .Old], context: nil)
+            gesture.addObserver(self, forKeyPath: "forcePressure", options: [.new, .old], context: nil)
         }
     }
     
     // MARK:
     // MARK: Image
     
-    private func addImages(image: [UIImage?]?) {
+    fileprivate func addImages(_ image: [UIImage?]?) {
         if let image = image as Array? {
-            images.appendContentsOf(image)
+            images.append(contentsOf: image)
         }
     }
     
     // MARK:
     // MARK: Layout
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
     
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[containerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["containerView" : containerView]))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[containerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["containerView" : containerView]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[containerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["containerView" : containerView]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[containerView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["containerView" : containerView]))
         addConstraint(containerLayoutConstraint)
         
-        containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[imageView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["imageView" : imageView]))
+        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[imageView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["imageView" : imageView]))
         containerView.addConstraint(bottomLayoutConstraint)
         containerView.addConstraint(heightLayoutConstraint)
     }

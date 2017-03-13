@@ -13,18 +13,18 @@ extension SAStickyHeaderView {
     // MARK:
     // MARK: UI Image
     
-    func updateImageWithDirection(direction: UISwipeGestureRecognizerDirection) {
+    func updateImageWithDirection(_ direction: UISwipeGestureRecognizerDirection) {
         var animateImage: UIImage?
         
         // loop for images and swipe them out depending on a match and direction of swipe
-        for (index, element) in images.enumerate() {
+        for (index, element) in images.enumerated() {
             guard let first = images.first, let last = images.last else {
                 assertionFailure("SAStickyHeaderView: No images have been set!")
                 
                 return
             }
         
-            if direction == .Left {
+            if direction == .left {
                 if imageView.image == last {
                     animateImage = first
                     break
@@ -35,7 +35,7 @@ extension SAStickyHeaderView {
                     animateImage = image
                     break
                 }
-            } else if direction == .Right {
+            } else if direction == .right {
                 if imageView.image == last && images.count > 2 {
                     animateImage = images[images.count - 2]
                     break
@@ -50,16 +50,16 @@ extension SAStickyHeaderView {
         }
         
         // animate image
-        UIView.transitionWithView(imageView, duration:0.4, options:.TransitionCrossDissolve, animations: {
+        UIView.transition(with: imageView, duration:0.4, options:.transitionCrossDissolve, animations: {
             self.imageView.image = animateImage
-            self.imageView.transform = CGAffineTransformIdentity
+            self.imageView.transform = CGAffineTransform.identity
         }, completion: nil)
     }
     
-    internal func updateImageWithTransformation(pressure: CGFloat) {
+    internal func updateImageWithTransformation(_ pressure: CGFloat) {
         let pressure = max(1, pressure)
         
-        imageView.transform = CGAffineTransformMakeScale(pressure, pressure)
+        imageView.transform = CGAffineTransform(scaleX: pressure, y: pressure)
     }
     
     // MARK:
@@ -68,9 +68,9 @@ extension SAStickyHeaderView {
     /// set first image whenever new images are added
     internal func didUpdateImages() {
         // add first image to imageView and display it
-        if imageView.image == nil, let firstImage = images.first {
-            imageView.image = firstImage
-            imageView.transform = CGAffineTransformIdentity
-        }
+        guard imageView.image == nil, let firstImage = images.first else { return }
+        
+        imageView.image = firstImage
+        imageView.transform = CGAffineTransform.identity
     }
 }

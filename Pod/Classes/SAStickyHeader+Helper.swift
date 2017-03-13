@@ -11,13 +11,13 @@ import Foundation
 // Source: http://www.alloc-init.com/2015/10/if-let-assignment/
 infix operator ?= { associativity right precedence 90 }
 
-internal func ?=<T>(inout left: T, right: T?) {
+internal func ?=<T>(left: inout T, right: T?) {
     if let value = right {
         left = value
     }
 }
 
-internal func ?=<T>(inout left: T?, right: T?) {
+internal func ?=<T>(left: inout T?, right: T?) {
     if let value = right {
         left = value
     }

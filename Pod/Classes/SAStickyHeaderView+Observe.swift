@@ -8,21 +8,19 @@
 
 import UIKit
 
-public extension SAStickyHeaderView {
+extension SAStickyHeaderView {
     
     // MARK:
     // MARK: KVO
     
-    override func observeValueForKeyPath(keyPath: String?,
-        ofObject object: AnyObject?,
-        change: [String : AnyObject]?,
-        context: UnsafeMutablePointer<Void>) {
+    override open func observeValue(forKeyPath keyPath: String?,
+        of object: Any?,
+        change: [NSKeyValueChangeKey : Any]?,
+        context: UnsafeMutableRawPointer?) {
         if let tableView = object as? UITableView {
             updateImageViewFromScrollEvent(tableView)
         } else if let gesture = object as? SASForceGestureRecognizer {
             updateImageWithTransformation(gesture.forcePressure)
         }
-        
-        
     }
 }
