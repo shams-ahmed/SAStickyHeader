@@ -51,10 +51,16 @@ open class SAStickyHeaderView: UIView {
     // MARK:
     // MARK: Init
     
-    required public init(_ frame: CGRect=CGRect.zero, table: UITableView, with images: [UIImage?]?=nil) {
+    /// Create with with image height and inital images set
+    ///
+    /// - Parameters:
+    ///   - table: tableview to display view
+    ///   - height: max height
+    ///   - images: images
+    required public init(_ table: UITableView, with height: Int, using images: [UIImage?]?=nil) {
         tableView = table
         
-        super.init(frame: frame)
+        super.init(frame: CGRect(x: 0, y: 0, width: 0, height: height))
         
         setup()
         setupScrollViewObserve(table)

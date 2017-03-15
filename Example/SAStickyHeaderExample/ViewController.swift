@@ -37,16 +37,16 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupView()
+//        setupView()
     }
 
     // MARK:
     // MARK: TableViewDelegate
 
     // EXAMPLE 2: Using Delegate
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        return SAStickyHeaderView(table: tableView, with: images)
-//    }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return SAStickyHeaderView(tableView, with: 400, using: images)
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
@@ -64,10 +64,7 @@ class ViewController: UITableViewController {
     
     func setupView() {
         // EXAMPLE 1: SAStickyHeaderView with a frame and optional image array.
-        let stickyHeaderView = SAStickyHeaderView(CGRect(x: 0, y: 0, width: view.frame.width, height: 400),
-                                      table: tableView,
-                                      with: images
-        )
+        let stickyHeaderView = SAStickyHeaderView(tableView, with: 400, using: images)
         
         tableView.tableHeaderView = stickyHeaderView
     }
