@@ -28,10 +28,7 @@ extension SAStickyHeaderView: UIGestureRecognizerDelegate {
     // MARK:
     // MARK: UIGestureRecognizerDelegate
     
-    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        // Superview can either by itself or any UITable class
-        isTouchingView = touch.view?.superview == self
-        
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool { 
         return true // default value set from framework
     }
 }

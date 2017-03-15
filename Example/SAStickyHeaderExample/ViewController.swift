@@ -64,9 +64,11 @@ class ViewController: UITableViewController {
     
     func setupView() {
         // EXAMPLE 1: SAStickyHeaderView with a frame and optional image array.
-        tableView.tableHeaderView = SAStickyHeaderView(CGRect(x: 0, y: 0, width: view.frame.width, height: 400),
-            table: tableView,
-            with: images
+        let stickyHeaderView = SAStickyHeaderView(CGRect(x: 0, y: 0, width: view.frame.width, height: 400),
+                                      table: tableView,
+                                      with: images
         )
+        
+        tableView.tableHeaderView = stickyHeaderView
     }
 }

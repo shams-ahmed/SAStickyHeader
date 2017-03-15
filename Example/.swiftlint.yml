@@ -1,10 +1,29 @@
-disabled_rules: # rule identifiers to exclude from running
+variable_name: 
+  min_length: 1
+  max_length: 40
+opt_in_rules:
+  - closure_spacing
+  - empty_count
+  - explicit_init
+  - force_unwrapping
+  - function_parameter_count
   - line_length
-  - trailing_newline
+  - mark
+  - nimble_operator
+  - overridden_super_call
+  - private_outlet
+  - redundant_nil_coalescing
+  - statement_position
   - trailing_whitespace
+disabled_rules:
+  - trailing_whitespace
+  - line_length
+  - mark
+  - function_parameter_count
+  - statement_position
   - function_body_length
-  - variable_name
-excluded: # paths to ignore during linting. overridden by `included`.
+excluded:
   - Carthage
   - Pods
-  
+
+

@@ -15,9 +15,6 @@ extension SAStickyHeaderView {
 
     /// Update header view from a drag movement
     internal func updateImageViewFromScrollEvent(_ tableView: UITableView) {
-        // if current view is not self, just return to avoid any glitch
-        guard isTouchingView else { return }
-        
         let insert = tableView.contentInset
         let offset = -(tableView.contentOffset.y + insert.top)
         

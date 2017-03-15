@@ -14,46 +14,40 @@ extension SAStickyHeaderView {
     // MARK: UI Image
     
     func updateImageWithDirection(_ direction: UISwipeGestureRecognizerDirection) {
-        var animateImage: UIImage?
-        
-        // loop for images and swipe them out depending on a match and direction of swipe
-        for (index, element) in images.enumerated() {
-            guard let first = images.first, let last = images.last else {
-                assertionFailure("SAStickyHeaderView: No images have been set!")
-                
-                return
-            }
-        
-            if direction == .left {
-                if imageView.image == last {
-                    animateImage = first
-                    break
-                } else if imageView.image == first {
-                    animateImage = images[1]
-                    break
-                } else if imageView.image == element, let image = images[index+1] {
-                    animateImage = image
-                    break
-                }
-            } else if direction == .right {
-                if imageView.image == last && images.count > 2 {
-                    animateImage = images[images.count - 2]
-                    break
-                } else if imageView.image == first {
-                    animateImage = last
-                    break
-                } else if imageView.image == element, let image = images[index-1] {
-                    animateImage = image
-                    break
+        let animateImage: UIImage? = {
+            guard let first = images.first, let last = images.last else { return nil }
+            
+            // loop for images and swipe them out depending on a match and direction of swipe
+            for (index, element) in images.enumerated() {
+                if direction == .left {
+                    if imageView.image == last {
+                        return first
+                    } else if imageView.image == first {
+                        return images[1]
+                    } else if imageView.image == element, let image = images[index+1] {
+                        return image
+                    }
+                } else if direction == .right {
+                    if imageView.image == last && images.count > 2 {
+                        return images[images.count - 2]
+                    } else if imageView.image == first {
+                        return last
+                    } else if imageView.image == element, let image = images[index-1] {
+                        return image
+                    }
                 }
             }
-        }
+            
+            return nil
+        }()
         
         // animate image
-        UIView.transition(with: imageView, duration:0.4, options:.transitionCrossDissolve, animations: {
-            self.imageView.image = animateImage
-            self.imageView.transform = CGAffineTransform.identity
-        }, completion: nil)
+        if let animateImage = animateImage {
+            UIView.transition(with: imageView, duration:0.4, options:.transitionCrossDissolve, animations: {
+                self.imageView.image = animateImage
+                self.imageView.transform = CGAffineTransform.identity
+            })
+        }
     }
     
     internal func updateImageWithTransformation(_ pressure: CGFloat) {

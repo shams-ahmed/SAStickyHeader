@@ -20,11 +20,8 @@ open class SAStickyHeaderView: UIView {
     internal var containerLayoutConstraint = NSLayoutConstraint()
     
     /// Reference to make this control and easy and lightweight as much as possible
-    internal let tableView: UITableView
+    internal weak var tableView: UITableView?
 
-    /// Listen to touch events to fix scroll issues
-    
-    
     internal lazy var tapGesture: UITapGestureRecognizer = {  [unowned self] in
         let selector = #selector(didTapHeaderView(_:))
         
@@ -34,9 +31,6 @@ open class SAStickyHeaderView: UIView {
             return UITapGestureRecognizer(target: self, action: selector)
         }
     }()
-    
-    /// Flag to dictate if user has tapped on this view
-    internal var isTouchingView: Bool = false
     
     /// images to add to header view
     open var images = [UIImage?]() {
@@ -77,7 +71,7 @@ open class SAStickyHeaderView: UIView {
     }
     
     deinit {
-        tableView.removeObserver(self, forKeyPath: "contentOffset")
+        tableView?.removeObserver(self, forKeyPath: "contentOffset")
     }
     
     // MARK:
@@ -122,14 +116,13 @@ open class SAStickyHeaderView: UIView {
         
         addGestureRecognizer(leftGesture)
         addGestureRecognizer(rightGesture)
-        tableView.addGestureRecognizer(tapGesture)
+        tableView?.addGestureRecognizer(tapGesture)
     }
     
     fileprivate func setupScrollViewObserve(_ table: UITableView) {
         table.addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
         
         if #available(iOS 9, *), let gesture = tapGesture as? SASForceGestureRecognizer {
-//            gesture.addObserver(self, forKeyPath: "forcePressure", options: .New, context: nil)
             gesture.addObserver(self, forKeyPath: "forcePressure", options: [.new, .old], context: nil)
         }
     }
